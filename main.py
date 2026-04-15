@@ -1,5 +1,6 @@
 from utils import *
 from solver import *
+from stick_n_rope import *
 import time
 
 w = 1 # Емкость рюкзака
@@ -41,6 +42,27 @@ start = time.perf_counter()
 sorted_items, total_v, total_cost = greedy_algo(itemsNormal, w)
 end = time.perf_counter()
 print("Жадный алгоритм для нормального распределения:")
+print("\n".join(f"Индекс: {i['index']}, Вес: {i['weight']:.5f}, Цена: {i['price']:.5f}" for i in sorted_items))
+print(f"\nИтоговый вес: {total_v}")
+print(f"Итоговая стоимость: {total_cost}\n")
+print(f"Выполнено за: {end - start:.8f} сек.")
+
+
+start = time.perf_counter()
+sorted_items, total_v, total_cost = stick_n_rope(itemsUniform, w)
+end = time.perf_counter()
+print("Алгоритм ветвей и границ для равномерного распределения:")
+print("\n".join(f"Индекс: {i['index']}, Вес: {i['weight']:.5f}, Цена: {i['price']:.5f}" for i in sorted_items))
+print(f"\nИтоговый вес: {total_v}")
+print(f"Итоговая стоимость: {total_cost}\n")
+print(f"Выполнено за: {end - start:.8f} сек.")
+
+
+#Жадный для нормального
+start = time.perf_counter()
+sorted_items, total_v, total_cost = stick_n_rope(itemsNormal, w)
+end = time.perf_counter()
+print("Алгоритм ветвей и границ для нормального распределения:")
 print("\n".join(f"Индекс: {i['index']}, Вес: {i['weight']:.5f}, Цена: {i['price']:.5f}" for i in sorted_items))
 print(f"\nИтоговый вес: {total_v}")
 print(f"Итоговая стоимость: {total_cost}\n")
