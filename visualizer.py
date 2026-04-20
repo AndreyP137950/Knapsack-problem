@@ -165,8 +165,8 @@ class MainWindow(QMainWindow):
             from utils import uniform_distribution, normal_distribution
             
             # Твои условия по N и X
-            n_values = [10, 100, 1000, 1000000]
-            x_values = [10, 100, 1000, 1000000, 100000000]
+            n_values = [10, 100, 1000, 100000]
+            x_values = [10, 100, 1000, 10000, 100000]
             w = 1
             
             # Структура: { 'Равномерное': { X_value: { 'n': [], 'err': [] } } }
